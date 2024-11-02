@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-basedir="$(dirname "${BASH_SOURCE[0]})"
+basedir="$(dirname "${BASH_SOURCE[0]}")"
 
 export $(grep -v '^#' "$basedir/.env" | xargs)
 
 current_ip=$(curl https://api.ipify.org/)
-certfile="$(dirname "${BASH_SOURCE[0]}")/$AZURE_CERTFILE"
+certfile="$basedir/$AZURE_CERTFILE"
 
 az login --service-principal -u $AZURE_USERNAME -p $certfile --tenant $AZURE_TENANT
 
