@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 
-# ./add-role-assignment-to-subdomain.sh my.subdomain
+# source ./.env && ./add-role-assignment-to-subdomain.sh my.subdomain
 
 basedir="$(dirname "${BASH_SOURCE[0]}")"
-
-export $(grep -v '^#' "$basedir/.env" | xargs)
-
 subdomain="$1"
 
 az login --tenant $AZURE_TENANT
